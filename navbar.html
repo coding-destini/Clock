@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <!-- BootStrap Link CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="row">
+        <!-- logo  -->
+        <div class="col-12 fs-5 text-light"><img src="/assets/images/clock-logo.png" alt="">Clock
+        </div>
+        <!-- Nav list  -->
+        <a href="/index.html">
+            <div class="col-12"><i class="fa-solid fa-file-code my-3 mx-3"></i>Focus sessions
+            </div>
+        </a>
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Will update in future">
+            <div class="col-12"><i class="fa-regular fa-hourglass my-3 mx-3"></i>Timer</div>
+        </a>
+        <a href="/alarm.html">
+            <div class="col-12"><i class="fa-regular fa-bell my-3 mx-3"></i>Alarm</div>
+        </a>
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Will update in future">
+            <div class="col-12"><i class="fa-solid fa-stopwatch my-3 mx-3"></i>StopWatch</div>
+        </a>
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Will update in future">
+            <div class="col-12"><i class="fa-solid fa-earth-americas my-3 mx-3"></i>World Clock
+            </div>
+        </a>
+
+        <!-- empty box  -->
+        <div class="empty-box col-12  my-3" style="height: 250px;">
+        </div>
+
+        <!-- Profile and settings -->
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Will update in future">
+            <div class="col-12 profile d-flex align-end">
+                <div class="profile-picture "><img src="/assets/images/User-picture.jpg" alt=""></div>
+                <span class="mt-3 mx-2">Coding Destini</span>
+            </div>
+
+        </a>
+        <a href="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Will update in future">
+            <div class="col-12"><i class="fa-solid fa-gears my-3 mx-3 fs-5"></i></i>Settings
+            </div>
+        </a>
+    </div>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <!-- bootstrap Script CDN LINK  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style CSS Link  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- BootStrap Link CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- font-poppins -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Alarm Clock</title>
+</head>
+
+<body>
+    <div class="box shadow-lg  bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 left-nav">
+                    <nav class="nav ">
+
+                    </nav>
+                </div>
+
+                <!-- Clock  -->
+                <div class="col-lg-4 " style="background-color: #091921;">
+                    <div class="clock mt-4">
+                        <div class="hour">
+                            <div class="hr" id="hr"></div>
+                        </div>
+                        <div class="min">
+                            <div class="mn" id="mn"></div>
+                        </div>
+                        <div class="sec">
+                            <div class="sc" id="sc"></div>
+                        </div>
+                    </div>
+
+                    <!-- To do list  -->
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class="todo  m-2  p-2">
+                                <div class="col-12  my-3 text-light"> <img src="/assets/images/Microsoft_To-Do_icon.png"
+                                        alt="" class="mx-2"> Tasks
+                                </div>
+                                <!-- Nav list  -->
+                                <div class="col-12  my-2 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                        <label class="form-check-label" for="flexCheckDefault1">
+                                            Complete Binary Trees
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12  my-2 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                        <label class="form-check-label" for="flexCheckDefault2">
+                                            Check mails
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12  my-2 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                        <label class="form-check-label" for="flexCheckDefault3">
+                                            Meetings
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12  my-2 p-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                                        <label class="form-check-label" for="flexCheckDefault4">
+                                            Revise DSA Ref: (Introduction to Algorithim)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Progress  -->
+                <div class="box3 col-lg-5  text-light" style="background-color: #091921;">
+                    <div class="row goals  mt-3 mx-2 p-3 mb-1 ">
+                        <div class=" col-12 d-flex justify-content-between">
+                            <h3>My Goals</h3>
+                            <button type="button" class="btn btn-outline-warning">Full stats <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div class="projects col-12">
+                            <h1><b>5+ Major <span style="color: rgb(151, 151, 151);">Projects</span></b></h1>
+                        </div>
+                        <div class="col-12 reports">
+                            <p style="color: rgb(151, 151, 151);"><b>Must use these technologies</b></p>
+                            <div class="bars">
+                                <div class="bar"><b class="my-5">Html</b></div>
+                                <div class="bar"><b class="my-4">CSS</b></div>
+                                <div class="bar"><b class="my-4">JavaScript</b></div>
+                                <div class="bar"><b class="my-3">React</b></div>
+                                <div class="bar"><b class="my-4"> Bootstrap</b></div>
+                                <div class="bar"><b class="my-3">Java</b></div>
+                                <div class="bar"><b class="my-4">MongoDB</b></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- music Player Spotify  -->
+                    <div class="row ">
+                        <div class=" col-12">
+                            <div class="spotify p-3 mt-2">
+                                <audio src="assets/music/GirlsLikeYou.mp3" id="audio"></audio>
+                                <div class="logo d-flex"><i class="fa-brands fa-spotify mx-2 fs-2 text-success"></i>
+                                    <h4><b>Spotify</b></h4>
+                                </div>
+                                <!-- music image  -->
+                                <div class="music text-center mt-2"><img src="/assets/images/main-player.jpg" id="cover"
+                                        alt="" width="47%"></div>
+                                <div class="row ">
+                                    <div class=" music-title col-6 mt-2"
+                                        style="  background: #ffd89b;  
+                                    background: -webkit-linear-gradient(to bottom, #0b5030, #ffd89b);
+                                    background: linear-gradient(to bottom, #065232, #ffd89b); color: black; border-top-right-radius: 15px;border-bottom-right-radius: 15px;">
+                                        <h5 id="title"><b>Remix Despacito</b></h5>
+                                    </div>
+                                    <div class="col-6"></div>
+                                </div>
+                                <!-- player -controls  -->
+                                <div class="player-control col-12" id="music-controls">
+                                    <a href="#Random-track""><i class=" fas fa-random" title="random"></i></a>
+                                    <a href="#backward" id="prev"><i class=" fa-solid fa-backward"></i></a>
+                                    <a href="#play" id="play"><i class="fas fa-solid fa-play"></i></a>
+                                    <a href="#forward" id="next"><i
+                                            class="fa-solid fa-forward action-btn action-btn-big"></i></a>
+                                    <a href="#repeat"><i class="fa fa-repeat" title="repeat"></i></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap Script CDN LINK  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/e2c02d027c.js" crossorigin="anonymous"></script>
+    <!-- External script  -->
+    <script src="/script.js"></script>
+</body>
+
+</html>

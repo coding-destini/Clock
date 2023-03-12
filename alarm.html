@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style CSS Link  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- BootStrap Link CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- font-poppins -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Alarm Clock</title>
+</head>
+
+<body>
+    <div class="box shadow-lg  bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="  col-lg-3 left-nav">
+                    <nav class="nav">
+                        <!-- navbar -->
+                    </nav>
+                </div>
+
+                <div class="col-lg-9 alarm" style="background-color: #091921;">
+                    <div class="col-12"><h1 class="timer text-center text-light" style="font-size: 5rem;">00:00:00 PM</h1></div>
+                    <div class="col-12 mt-4 "> <!-- Set Alarm  -->
+                        <div class="wrapper ">
+                            <span class="watch-icon"><svg xmlns="http://www.w3.org/2000/svg" width="186" height="186" fill="currentColor" class="bi bi-alarm px-3 my-5" viewBox="0 0 16 16">
+                                <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
+                                <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
+                              </svg></span>
+                            <div class="content d-flex">
+                                <div class="column">
+                                    <select>
+                                        <option value="Hour" selected disabled hidden>Hour
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="column">
+                                    <select>
+                                        <option value="Minute" selected disabled hidden>Minute
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="column">
+                                    <select>
+                                        <option value="AM/PM" selected disabled hidden>AM/PM
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" class="btn setBtn btn-primary">Set Alarm
+                            </button>
+                                <div class="weeks">
+                                    <ul>
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                            </div>
+                         
+                        </div>
+                        <!-- set alarm end  -->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+
+        // Set Alarm 
+        const currentTime = document.querySelector(".timer"),
+            content = document.querySelector(".content"),
+            selectMenu = document.querySelectorAll("select"),
+            setAlarmBtn = document.querySelector(".setBtn");
+
+        let alarmTime, isAlarmSet,
+            ringtone = new Audio("/assets/music/ringtone.mp3");
+
+        for (let i = 12; i > 0; i--) {
+            i = i < 10 ? `0${i}` : i;
+            let option = `<option value="${i}">${i}</option>`;
+            selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", option);
+        }
+
+        for (let i = 59; i >= 0; i--) {
+            i = i < 10 ? `0${i}` : i;
+            let option = `<option value="${i}">${i}</option>`;
+            selectMenu[1].firstElementChild.insertAdjacentHTML("beforebegin", option);
+        }
+
+        for (let i = 2; i > 0; i--) {
+            let ampm = i == 1 ? "AM" : "PM";
+            let option = `<option value="${ampm}">${ampm}</option>`;
+            selectMenu[2].firstElementChild.insertAdjacentHTML("beforebegin", option);
+        }
+
+        setInterval(() => {
+            let date = new Date(),
+                h = date.getHours(),
+                m = date.getMinutes(),
+                s = date.getSeconds(),
+                ampm = "AM";
+            if (h >= 12) {
+                h = h - 12;
+                ampm = "PM";
+            }
+            h = h == 0 ? h = 12 : h;
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+            currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
+
+            if (alarmTime === `${h}:${m} ${ampm}`) {
+                ringtone.play();
+                ringtone.loop = true;
+            }
+        });
+
+        function setAlarm() {
+            if (isAlarmSet) {
+                alarmTime = "";
+                ringtone.pause();
+                content.classList.remove("disable");
+                setAlarmBtn.innerText = "Set Alarm";
+                return isAlarmSet = false;
+            }
+
+            let time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
+            if (time.includes("Hour") || time.includes("Minute") || time.includes("AM/PM")) {
+                return alert("Please, select a valid time to set Alarm!");
+            }
+            alarmTime = time;
+            isAlarmSet = true;
+            content.classList.add("disable");
+            setAlarmBtn.innerText = "Clear Alarm";
+        }
+
+        setAlarmBtn.addEventListener("click", setAlarm);
+    </script>
+
+
+
+
+
+
+    <!-- bootstrap Script CDN LINK  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/e2c02d027c.js" crossorigin="anonymous"></script>
+    <!-- External script  -->
+    <script src="/script.js"></script>
+</body>
+
+</html>
