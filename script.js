@@ -1,15 +1,15 @@
 
 // Link multiple file in a single html page 
 
-const nav = document.querySelector('.nav')
-fetch('/navbar.html')
-.then(res=>res.text())
-.then(data=>{
-    nav.innerHTML=data
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(data, 'text/html')
-    eval(doc.querySelector('script').textContent)
-})
+// const nav = document.querySelector('.nav')
+// fetch('/navbar.html')
+// .then(res=>res.text())
+// .then(data=>{
+//     nav.innerHTML=data
+//     const parser = new DOMParser()
+//     const doc = parser.parseFromString(data, 'text/html')
+//     eval(doc.querySelector('script').textContent)
+// })
 
 
 const deg=6;
@@ -139,3 +139,6 @@ audio.addEventListener('timeupdate',DurTime);
 // })
 
 
+// Tool tips 
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
